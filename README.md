@@ -5,7 +5,7 @@
 # Language&Framework
 
 - Ruby
-  - [sinatra]*(https://github.com/sinatra/sinatra)
+  - [sinatra](https://github.com/sinatra/sinatra)
 
 # License
 
