@@ -4,3 +4,7 @@
 Gemfile.lock
 .swp
 .DS_Store
+./data/*
+./public/music
+
+./sass-cache/*
