@@ -2,7 +2,11 @@
 
 - 音楽を投稿してユーザごとに投稿した音楽を聴けるサイト
 
-## Language&Framework
+# Language&Framework
 
 - Ruby
   - [sinatra]*(https://github.com/sinatra/sinatra)
+
+# License
+
+MIT
