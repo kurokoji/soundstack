@@ -1,0 +1,35 @@
+!!!
+%html(lang="ja")
+  %head
+    %meta(charset="utf-8")
+    %link(rel="stylesheet" href="/sidebar.css")
+    %meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    %link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
+    %link(rel='stylesheet' href='http://cdn.rawgit.com/JeremyFagis/dropify/master/dist/css/dropify.css')
+    %script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
+    %script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
+    %script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
+    %script(src='http://cdn.rawgit.com/JeremyFagis/dropify/master/dist/js/dropify.js')
+    %script(type="text/javascript") $(function() {$('.dropify').dropify();});
+    %title #{@title}
+  %body
+    %nav(class="navbar navbar-dark bg-dark")
+      %a(class="navbar-brand" href="/") SoundStack
+      %form(method="post" class="form-inline" action="/search")
+        %input(class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="user")
+        %button(class="btn btn-outline-success my-2 my-sm-0" type="submit") ユーザ検索
+      %ul(class="navbar-nav flex-row ml-md-auto d-none d-md-flex")
+        %li
+          - if session[:user_id]
+            %a(class="nav-link p-2" href="/mypage" style="text-decoration: none; color: #ffffff;") マイページ
+        %li
+          %a(class="nav-link p-2" href="/sign_up" style="text-decoration: none; color: #ffffff;") サインアップ
+        %li
+          - if session[:user_id]
+            %form(name='sign_out' method='post' action='/sign_out')
+              %input(type="hidden" name="_method" value="delete")
+              %a(class="nav-link p-2" href="javascript:void(0)" onclick="document.sign_out.submit();return false;" style="text-decoration: none; color: #ffffff;") サインアウト
+          - else
+            %a(class="nav-link p-2" href="/sign_in" style="text-decoration: none; color: #ffffff;") サインイン
+      / %a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") ログイン
+    = yield

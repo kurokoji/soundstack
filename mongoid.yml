@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: Audio
+      hosts:
+        - localhost:27017

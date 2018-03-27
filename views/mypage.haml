@@ -1,0 +1,20 @@
+%div(class="container-fluid")
+  %div(class="row")
+    %div(class="col-sm-3 py-md-3 pl-md-5")
+      %div(class="card")
+        %h5(class="card-header") メニュー
+        %ul(class="list-group list-group-flush")
+          %li(class="list-group-item")
+            %a(href="/mypage/submit") 投稿
+          / %li(class="list-group-item") 投稿したSound
+    %main(class="col-sm-9 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main")
+      %div(class="card")
+        %h5(class="card-header") #{session[:user_id]}さんの投稿Sound
+        %div(class="container-fluid")
+          %div(class="card-body")
+          - for audio in @audio_all
+            %div(class="card")
+              %h6(class="card-header") #{audio[:title]}
+              %div(class="card-body")
+                %p #{audio[:description]}
+                %audio(src="./music/#{audio[:audio_id]}.mp3" controls preload="auto")

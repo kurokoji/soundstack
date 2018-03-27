@@ -1,0 +1,18 @@
+%div(class="container-fluid")
+  %div(class="row py-md-3 pl-md-6")
+    %div(class="card mx-auto text-center align-middle border-primary" style="width: 900px;")
+      %div(class="card-body")
+        %h3(class="card-title") 投稿する
+        %form(method="post" action="/mypage/submit" enctype="multipart/form-data")
+          %div(class="form-group")
+            %label ファイル
+            %input(class="form-control" type="file" class="dropify" name="input_audio" data-default-file="ドラッグアンドドロップ")
+          %div(class="form-group")
+            %label Soundタイトル
+            %input(class="form-control" type="text" name="input_title" placeholder="タイトル")
+          %div(class="form-group")
+            %label Sound説明文
+            %textarea(class="form-control" name="input_description" rows="5" placeholder="説明文")
+          %button(class="btn btn-primary" type="submit") 投稿
+        - if @isFailed
+          %div(class="alert alert-danger" role="alert") #{@sentence}

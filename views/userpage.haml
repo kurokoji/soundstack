@@ -1,0 +1,13 @@
+%div(class="container-fluid")
+  %div(class="row")
+    %main(class="col-xl-12 py-md-3 pl-md-5 bd-content" role="main")
+      %div(class="card")
+        %h5(class="card-header") #{@username}さんの投稿Sound
+        %div(class="container-fluid")
+          %div(class="card-body")
+          - for audio in @audio_all
+            %div(class="card")
+              %h6(class="card-header") #{audio[:title]}
+              %div(class="card-body")
+                %p #{audio[:description]}
+                %audio(src="/music/#{audio[:audio_id]}.mp3" controls preload="auto")

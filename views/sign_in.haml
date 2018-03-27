@@ -1,0 +1,9 @@
+%div(class="container-fluid")
+  %div(class="mx-auto" style="width: 500px;")
+    %form(class="form-signin" method="post" action="/sign_in")
+      %h1(class="h3 mb-3 font-weight-normal") サインイン
+      %input(type="text" name="input_username" placeholder="Username")
+      %input(type="password" name="input_password" placeholder="Password")
+      %button(class="btn btn-primary" type="submit") サインイン
+    - if @isFailed
+      %div(class="alert alert-danger" role="alert") #{@sentence}
